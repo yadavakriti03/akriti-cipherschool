@@ -1,40 +1,41 @@
+// code for selection sort
 #include <iostream>
 using namespace std;
+int main()
+{
+   int a[10];
+   int i;
+   for (i = 0; i < 10; i++)
+      cin >> a[i];
 
-int main() {
-    int arr[10];
+   // start of selection sort
+   int least_index;
+   int j;
 
-    // Taking input for the array
-    cout << "Enter 10 integers: " << endl;
-    for (int i = 0; i < 10; i++) {
-        cin >> arr[i];
-    }
+   // for first iteration
+   // least_index=0;
+   // for(j=0;j<10;j++){
+   //    if(a[j]<a[least_index]) least_index=j; //if we find an index in j=(0,9) at which a[j ] is less than than least index value then we change the least_index
+   // }
+   // int temp;
+   // temp=a[0];
+   // a[0]=a[least_index];
+   // a[least_index]=temp;
 
-    int index = 0;
-
-    // Implementing selection sort algorithm
-    for (int i = 0; i < 10 - 1; i++) {    
-        index = i;
-
-        // Finding the index of the smallest element in the remaining unsorted portion of the array
-        for (int j = i; j < 10; j++) {
-            if (arr[j] < arr[index]) {
-                index = j;
-            }
-        }
-
-        // Swapping the found smallest element with the element at position 'i'
-        int temp = arr[i];
-        arr[i] = arr[index];
-        arr[index] = temp;
-    }
-
-    // Displaying the sorted array
-    cout << "Sorted array: " << endl;
-    for (int i = 0; i < 10; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-
-    return 0;
+   // for each element
+   for (int i = 0; i < 9; i++)
+   {
+      least_index = i;
+      for (j = i + 1; j < 10; j++)
+      {
+         if (a[j] < a[least_index])
+            least_index = j;
+      }
+      if (least_index != i)
+         swap(a[least_index], a[i]);
+   }
+   for (int k = 0; k < 10; k++)
+   {
+      cout << a[k] << " ";
+   }
 }
