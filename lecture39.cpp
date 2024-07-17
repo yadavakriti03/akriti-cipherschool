@@ -1,50 +1,37 @@
+// Bubble sort
+//  In Bubble Sort algorithm,
+
+// traverse from left and compare adjacent elements and the higher one is placed at right side.
+// In this way, the largest element is moved to the rightmost end at first.
+// This process is then continued to find the second largest and place it and so on until the data is sorted.
+
 #include <iostream>
 using namespace std;
+int main()
+{
+   int i;
+   int a[10];
 
-int main() {
-    int n;
-    cout << "Enter size of array: " << endl;
-    cin >> n;
+   for (i = 0; i < 10; i++)
+      cin >> a[i];
+   int j;
+   for (j = 0; j < 9; j++)
+   {
 
-    int arr[n];
-    cout << "Enter array elements: " << endl;
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
+      int temp;
+      for (i = 0; i < 10 - j; i++)
+      {
+         if (a[i + 1] < a[i])
+         {
+            temp = a[i];
+            a[i] = a[i + 1];
+            a[i + 1] = temp;
+         }
+      }
+   }
+   for (i = 0; i < 10; i++)
+   {
 
-    // Bubble Sort in Descending Order
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] < arr[j + 1]) {
-                int temp = arr[j + 1];
-                arr[j + 1] = arr[j];
-                arr[j] = temp;
-            }
-        }
-    }
-
-    cout << "Array sorted in descending order: " << endl;
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-
-    // Bubble Sort in Ascending Order
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                int temp = arr[j + 1];
-                arr[j + 1] = arr[j];
-                arr[j] = temp;
-            }
-        }
-    }
-
-    cout << "Array sorted in ascending order: " << endl;
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-
-    return 0;
+      cout << a[i];
+   }
 }
